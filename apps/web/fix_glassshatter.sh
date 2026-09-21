@@ -1,0 +1,1 @@
+sed -i '' 's/const \[shards, setShards\] = useState<any\[\]>(\[\]);/interface Shard { id: number; color: string; size: number; startX: number; startY: number; endX: number; endY: number; rotation: number; clipPath: string; }\n  const [shards, setShards] = useState<Shard[]>([]);/g' src/presentation/components/game/GlassShatter.tsx

@@ -1,0 +1,10 @@
+---
+import Layout from '../presentation/layouts/Layout.astro';
+import { UserProfile } from '../presentation/components/profile/UserProfile';
+---
+
+<Layout title="Mi Perfil | English Grammar">
+  <main className="container mx-auto px-4 py-8 max-w-6xl">
+    <UserProfile client:load />
+  </main>
+</Layout>

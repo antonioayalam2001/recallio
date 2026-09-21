@@ -1,0 +1,15 @@
+---
+import Layout from '../presentation/layouts/Layout.astro';
+import { AdminDashboard } from '../presentation/components/admin/AdminDashboard';
+---
+
+<Layout title="Admin Panel">
+  <div class="mb-10">
+    <h2 class="text-3xl font-black mb-2 text-primary">Panel de Administración</h2>
+    <p class="opacity-80">Modera palabras sugeridas por la comunidad y gestiona los accesos administrativos.</p>
+  </div>
+  
+  <div class="mt-8">
+    <AdminDashboard client:load />
+  </div>
+</Layout>

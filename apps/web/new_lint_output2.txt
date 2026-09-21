@@ -1,0 +1,32 @@
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/admin/FlashcardComparisonCard.tsx
+  44:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  47:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  52:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  54:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/admin/WordComparisonCard.tsx
+   94:19  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   94:46  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  126:19  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  126:42  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/auth/AvatarCropperModal.tsx
+  5:10  error  'clsx' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/MarkdownContent.tsx
+  61:19  error  '_node' is defined but never used    @typescript-eslint/no-unused-vars
+  64:21  error  '_inline' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/hooks/useFlashcardFilters.ts
+  82:14  error  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/profile/ProfileAvatarUpload.tsx
+   2:27  error  'Upload' is defined but never used                                     @typescript-eslint/no-unused-vars
+  99:17  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/vocabulary/VocabularyView.tsx
+  2:10  error  'motion' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 15 problems (15 errors, 0 warnings)
+

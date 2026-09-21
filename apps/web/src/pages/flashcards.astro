@@ -1,0 +1,13 @@
+---
+import Layout from '../presentation/layouts/Layout.astro';
+import { FlashcardCatalog } from '../presentation/components/flashcards/FlashcardCatalog';
+---
+
+<Layout title="Flashcards - Estudio Activo">
+  <div class="mb-10">
+    <h2 class="text-3xl font-black mb-2 text-primary">Flashcards</h2>
+    <p class="opacity-80">Estudia mediante Active Recall con tarjetas de gramática, vocabulario y más.</p>
+  </div>
+  
+  <FlashcardCatalog client:load />
+</Layout>

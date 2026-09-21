@@ -1,0 +1,366 @@
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/application/useAdmin.ts
+  21:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  33:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  46:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  59:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/application/useAuth.ts
+   48:18  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  127:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/application/useFlashcards.ts
+   34:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+   75:16  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  135:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/application/useGame.ts
+  37:27  warning  Variable Assigned to Object Injection Sink                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  security/detect-object-injection
+  42:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/application/useGame.ts:42:5
+  40 |     if (isGameOver || !currentQuestion || !isStarted) return;
+  41 |
+> 42 |     setTimeLeft(15);
+     |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  43 |     const timer = setInterval(() => {
+  44 |       setTimeLeft((prev) => {
+  45 |         if (prev <= 1) {  react-hooks/set-state-in-effect
+  54:6   warning  React Hook useEffect has missing dependencies: 'currentQuestion', 'handleAnswer', and 'isStarted'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       react-hooks/exhaustive-deps
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/application/useVocabulary.ts
+   61:16  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+  108:14  error  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/components/ui/CreatableCombobox.tsx
+    5:10  error  'Button' is defined but never used                               @typescript-eslint/no-unused-vars
+  100:25  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  100:38  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/components/ui/command.tsx
+  40:52  error  Unknown property 'cmdk-input-wrapper' found  react/no-unknown-property
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/domain/repositories/IAdminRepository.ts
+  1:15  error  'SystemStats' is defined but never used  @typescript-eslint/no-unused-vars
+  1:28  error  'PendingItem' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/env.d.ts
+  1:1  error  Do not use a triple slash reference for ../.astro/types.d.ts, use `import` style instead  @typescript-eslint/triple-slash-reference
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/admin/FlashcardComparisonCard.tsx
+  44:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  47:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  52:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  54:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/admin/WordComparisonCard.tsx
+   94:19  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   94:46  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  126:19  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  126:42  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  142:15  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  142:38  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/auth/AvatarCropperModal.tsx
+   5:10  error  'clsx' is defined but never used          @typescript-eslint/no-unused-vars
+  86:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  91:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  91:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/auth/RegisterForm.tsx
+   6:61  error    'ImageIcon' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+  82:25  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/auth/RegisterForm.tsx:82:25
+  80 |   });
+  81 |
+> 82 |   const passwordValue = watch('password', '');
+     |                         ^^^^^ React Hook Form's `useForm()` API returns a `watch()` function which cannot be memoized safely.
+  83 |   const nicknameValue = watch('nickname', '');
+  84 |
+  85 |   // Verificación de disponibilidad de nickname con debounce de 400ms  react-hooks/incompatible-library
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/auth/ResetPasswordForm.tsx
+  29:11  error    An empty interface declaration allows any non-nullish value, including literals like `0` and `""`.
+- If that's what you want, disable this lint rule with an inline comment or configure the 'allowInterfaces' rule option.
+- If you want a type meaning "any object", you probably want `object` instead.
+- If you want a type meaning "any value", you probably want `unknown` instead                                                                                                                                                                                                                                                                                                                                                                                           @typescript-eslint/no-empty-object-type
+  54:25  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/auth/ResetPasswordForm.tsx:54:25
+  52 |   });
+  53 |
+> 54 |   const passwordValue = watch('newPassword', '');
+     |                         ^^^^^ React Hook Form's `useForm()` API returns a `watch()` function which cannot be memoized safely.
+  55 |
+  56 |   const onSubmit = async (data: ResetPasswordFormValues) => {
+  57 |     if (!token) return;  react-hooks/incompatible-library
+  70:3   warning  Potential timing attack, left side: true                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           security/detect-possible-timing-attacks
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/DeleteFlashcardDialog.tsx
+  27:70  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/FlashcardCatalog.tsx
+  182:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  183:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/FlashcardDeck.tsx
+   3:41  error    'Brain' is defined but never used           @typescript-eslint/no-unused-vars
+  34:23  warning  Variable Assigned to Object Injection Sink  security/detect-object-injection
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/FlashcardFilterBar.tsx
+  9:66  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/FlashcardItem.tsx
+  31:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  34:76  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  35:68  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/MarkdownContent.tsx
+  61:13  error  'node' is defined but never used    @typescript-eslint/no-unused-vars
+  64:13  error  'inline' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/hooks/useCreateFlashcardForm.ts
+  20:27  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+  52:22  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/hooks/useCreateFlashcardForm.ts:52:22
+  50 |   });
+  51 |
+> 52 |   const frontValue = watch('front');
+     |                      ^^^^^ React Hook Form's `useForm()` API returns a `watch()` function which cannot be memoized safely.
+  53 |   const backValue = watch('back');
+  54 |   const selectedGroup = watch('groupName');
+  55 |   const selectedTopic = watch('topicName');  react-hooks/incompatible-library
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/hooks/useEditFlashcardForm.ts
+   22:39  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+   23:32  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+   61:32  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+   72:22  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/hooks/useEditFlashcardForm.ts:72:22
+  70 |   }, [card, isOpen, reset]);
+  71 |
+> 72 |   const frontValue = watch('front');
+     |                      ^^^^^ React Hook Form's `useForm()` API returns a `watch()` function which cannot be memoized safely.
+  73 |   const backValue = watch('back');
+  74 |   const selectedGroup = watch('groupName');
+  75 |   const selectedTopic = watch('topicName');  react-hooks/incompatible-library
+  122:14  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/flashcards/hooks/useFlashcardFilters.ts
+  82:14  error  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/game/GlassShatter.tsx
+  67:5   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/game/GlassShatter.tsx:67:5
+  65 |     });
+  66 |
+> 67 |     setShards(newShards);
+     |     ^^^^^^^^^ Avoid calling setState() directly within an effect
+  68 |
+  69 |     const timer = setTimeout(() => {
+  70 |       setShards([]);  react-hooks/set-state-in-effect
+  89:20  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/game/GlassShatter.tsx:89:20
+  87 |             opacity: 1,
+  88 |             rotate: 0,
+> 89 |             scale: Math.random() * 0.5 + 0.5,
+     |                    ^^^^^^^^^^^^^ Cannot call impure function
+  90 |           }}
+  91 |           animate={{
+  92 |             x: shard.endX,                                                                                                                                                                                                                                                                                                                        react-hooks/purity
+  98:29  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/game/GlassShatter.tsx:98:29
+   96 |           }}
+   97 |           transition={{
+>  98 |             duration: 0.8 + Math.random() * 0.4,
+      |                             ^^^^^^^^^^^^^ Cannot call impure function
+   99 |             ease: [0.19, 1, 0.22, 1], // easeOutExpo para un estallido inicial fuerte
+  100 |           }}
+  101 |           style={{                                                                                                                                                                                                                                                      react-hooks/purity
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/game/MatchSummaryTooltips.tsx
+   9:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  27:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/game/hooks/useGameLobby.ts
+  51:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/game/hooks/useGameLobby.ts:51:5
+  49 |   // Cargar categorías con conteo y purgar las inválidas cuando cambia el nivel
+  50 |   useEffect(() => {
+> 51 |     setIsLoadingCategories(true);
+     |     ^^^^^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  52 |     const url = levelFilter ? `/words/categories?level=${levelFilter}` : '/words/categories';
+  53 |     api
+  54 |       .get(url)  react-hooks/set-state-in-effect
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/game/hooks/useGamePlay.ts
+  86:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/game/hooks/useGamePlay.ts:86:5
+  84 |   useEffect(() => {
+  85 |     if (!currentQuestion || !isStarted) return;
+> 86 |     setSelectedId(null);
+     |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  87 |     setAnsweredQuestionId(null);
+  88 |     setIsShattered(false);
+  89 |     playAudio();  react-hooks/set-state-in-effect
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/profile/ProfileAvatarUpload.tsx
+   2:27  error  'Upload' is defined but never used                                     @typescript-eslint/no-unused-vars
+  99:17  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/profile/ProfileForm.tsx
+  35:25  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/profile/ProfileForm.tsx:35:25
+  33 |   });
+  34 |
+> 35 |   const nicknameValue = watch('nickname');
+     |                         ^^^^^ React Hook Form's `useForm()` API returns a `watch()` function which cannot be memoized safely.
+  36 |   const { nicknameStatus } = useNicknameCheck(user.nickname, nicknameValue);
+  37 |
+  38 |   const onSubmit = async (data: ProfileFormValues) => {  react-hooks/incompatible-library
+  62:21  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/profile/hooks/useNicknameCheck.ts
+  36:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/profile/hooks/useNicknameCheck.ts:36:5
+  34 |
+  35 |   useEffect(() => {
+> 36 |     handleNicknameCheck(nicknameValue);
+     |     ^^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  37 |     return () => {
+  38 |       if (debounceTimer.current) clearTimeout(debounceTimer.current);
+  39 |     };  react-hooks/set-state-in-effect
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/ui/Navbar.tsx
+  33:5   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/ui/Navbar.tsx:33:5
+  31 |
+  32 |   useEffect(() => {
+> 33 |     syncAuthState();
+     |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  34 |
+  35 |     // Cerrar menú de usuario al hacer clic fuera
+  36 |     const handleClickOutside = (event: MouseEvent) => {  react-hooks/set-state-in-effect
+  79:31  error  Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/ui/ThemeToggle.tsx
+  18:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/ui/ThemeToggle.tsx:18:5
+  16 |       document.documentElement.classList.contains('dark') ||
+  17 |       localStorage.getItem('theme') === 'dark';
+> 18 |     setIsDark(isDarkMode);
+     |     ^^^^^^^^^ Avoid calling setState() directly within an effect
+  19 |     if (isDarkMode) {
+  20 |       document.documentElement.classList.add('dark');
+  21 |     } else {  react-hooks/set-state-in-effect
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/vocabulary/DeleteWordDialog.tsx
+  27:70  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/vocabulary/EditWordModal.tsx
+   76:31  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-explicit-any
+   90:41  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-explicit-any
+  103:14  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-explicit-any
+  186:24  warning  Compilation Skipped: Use of incompatible library
+
+This API returns functions which cannot be memoized without leading to stale UI. To prevent this, by default React Compiler will skip memoizing this component/hook. However, you may see issues if values from this API are passed to other components/hooks that are memoized.
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/vocabulary/EditWordModal.tsx:186:24
+  184 |             <div className="mt-1">
+  185 |               <Select
+> 186 |                 value={watch('level')}
+      |                        ^^^^^ React Hook Form's `useForm()` API returns a `watch()` function which cannot be memoized safely.
+  187 |                 onValueChange={(val) => setValue('level', val as any, { shouldValidate: true })}
+  188 |               >
+  189 |                 <SelectTrigger className="h-12 w-full bg-background border border-foreground/10 rounded-xl px-4 font-semibold text-sm">  react-hooks/incompatible-library
+  187:66  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/vocabulary/SuggestWordForm.tsx
+  73:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/vocabulary/VocabularyView.tsx
+    2:10   error  'motion' is defined but never used        @typescript-eslint/no-unused-vars
+  241:104  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/vocabulary/VocabularyWordCard.tsx
+   33:68  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+   34:76  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  105:66  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  105:89  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/components/vocabulary/hooks/useSuggestWordForm.ts
+  28:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tonyayala/Documents/english_grammar/apps/web/src/presentation/constants/levels.ts
+  29:10  warning  Generic Object Injection Sink  security/detect-object-injection
+
+✖ 89 problems (78 errors, 11 warnings)
+
