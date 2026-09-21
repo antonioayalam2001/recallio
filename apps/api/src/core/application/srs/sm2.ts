@@ -1,0 +1,37 @@
+export function calculateSM2(
+  quality: number,
+  currentRepetitions: number,
+  currentEaseFactor: number,
+  currentInterval: number,
+) {
+  let repetitions = currentRepetitions;
+  let interval = currentInterval;
+  let easeFactor = currentEaseFactor;
+
+  if (quality >= 3) {
+    if (repetitions === 0) {
+      interval = 1;
+    } else if (repetitions === 1) {
+      interval = 6;
+    } else {
+      interval = Math.round(interval * easeFactor);
+    }
+    repetitions++;
+  } else {
+    repetitions = 0;
+    interval = 1;
+  }
+
+  easeFactor = easeFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02));
+  if (easeFactor < 1.3) easeFactor = 1.3;
+
+  const nextReviewDate = new Date();
+  nextReviewDate.setDate(nextReviewDate.getDate() + interval);
+
+  return {
+    repetitions,
+    interval,
+    easeFactor,
+    nextReviewDate,
+  };
+}

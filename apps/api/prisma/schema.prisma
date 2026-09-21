@@ -1,0 +1,286 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum WordStatus {
+  PRIVATE
+  PENDING_APPROVAL
+  APPROVED
+  REJECTED
+}
+
+enum Level {
+  A1
+  A2
+  B1
+  B2
+  C1
+  C2
+}
+
+enum InvitationStatus {
+  PENDING
+  ACCEPTED
+  EXPIRED
+}
+
+model User {
+  id             String   @id @default(uuid())
+  // Campos de nombre separados
+  firstName      String
+  lastName       String   // Apellido paterno
+  motherLastName String   // Apellido materno
+  name           String   // Calculado: firstName + ' ' + lastName + ' ' + motherLastName
+  nickname       String   @unique
+  email          String   @unique
+  passwordHash   String
+  // TODO: avatarUrl se habilitará una vez que la arquitectura de Localstack S3 esté lista
+  avatarUrl      String?
+  role           Role     @default(USER)
+  createdAt      DateTime @default(now())
+
+  gameSessions  GameSession[]
+  wordsCreated  Word[]        @relation("CreatedWords")
+  wordsReviewed Word[]        @relation("ReviewedWords")
+
+  invitationsSent     AdminInvitation[] @relation("Inviter")
+  invitationsReceived AdminInvitation[] @relation("TargetUser")
+
+  flashcardsCreated  Flashcard[]             @relation("CreatedFlashcards")
+  flashcardsReviewed Flashcard[]             @relation("ReviewedFlashcards")
+  flashcardSessions  FlashcardStudySession[]
+
+  savedFlashcards  SavedFlashcard[]
+  flashcardReviews FlashcardReview[]
+  savedWords       SavedWord[]
+  wordReviews      WordReview[]
+  passwordResetTokens PasswordResetToken[]
+}
+
+model Word {
+  id                 String     @id @default(uuid())
+  englishWord        String
+  spanishTranslation String
+  level              Level
+  category           String
+  exampleSentence    String?
+  exampleTranslation String?
+  status             WordStatus @default(PENDING_APPROVAL)
+
+  createdById String?
+  createdBy   User?   @relation("CreatedWords", fields: [createdById], references: [id])
+
+  originalWordId String?
+  originalWord   Word?   @relation("WordSuggestions", fields: [originalWordId], references: [id], onDelete: SetNull)
+  suggestions    Word[]  @relation("WordSuggestions")
+
+  reviewedById String?
+  reviewedBy   User?   @relation("ReviewedWords", fields: [reviewedById], references: [id])
+
+  createdAt DateTime @default(now())
+
+  gameAnswers GameAnswer[]
+  savedBy     SavedWord[]
+  reviews     WordReview[]
+}
+
+model GameSession {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  levelFilter    String?
+  categoryFilter String?
+  totalQuestions Int
+  score          Int     @default(0)
+  correctCount   Int     @default(0)
+  incorrectCount Int     @default(0)
+
+  answers GameAnswer[]
+
+  createdAt DateTime @default(now())
+}
+
+model GameAnswer {
+  id            String      @id @default(uuid())
+  gameSessionId String
+  gameSession   GameSession @relation(fields: [gameSessionId], references: [id])
+
+  wordId String
+  word   Word   @relation(fields: [wordId], references: [id])
+
+  isCorrect    Boolean
+  timeSpentMs  Int
+  pointsEarned Int
+}
+
+model AdminInvitation {
+  id     String           @id @default(uuid())
+  email  String?
+  token  String           @unique
+  status InvitationStatus @default(PENDING)
+
+  inviterId String
+  inviter   User   @relation("Inviter", fields: [inviterId], references: [id])
+
+  targetUserId String?
+  targetUser   User?   @relation("TargetUser", fields: [targetUserId], references: [id])
+
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Group {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+
+  topics     Topic[]
+  flashcards Flashcard[]
+}
+
+model Topic {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+
+  groupId String
+  group   Group  @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  categories Category[]
+  flashcards Flashcard[]
+
+  @@unique([groupId, name])
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  name      String
+  topicId   String
+  topic     Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  flashcards Flashcard[]
+
+  @@unique([topicId, name])
+}
+
+model Flashcard {
+  id     String     @id @default(uuid())
+  front  String     @db.Text
+  back   String     @db.Text
+  status WordStatus @default(PENDING_APPROVAL)
+
+  groupId String
+  group   Group  @relation(fields: [groupId], references: [id])
+
+  topicId String
+  topic   Topic  @relation(fields: [topicId], references: [id])
+
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  createdById String?
+  createdBy   User?   @relation("CreatedFlashcards", fields: [createdById], references: [id])
+
+  originalFlashcardId String?
+  originalFlashcard   Flashcard?  @relation("FlashcardSuggestions", fields: [originalFlashcardId], references: [id], onDelete: SetNull)
+  suggestions         Flashcard[] @relation("FlashcardSuggestions")
+
+  reviewedById String?
+  reviewedBy   User?   @relation("ReviewedFlashcards", fields: [reviewedById], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  savedBy SavedFlashcard[]
+  reviews FlashcardReview[]
+}
+
+model FlashcardStudySession {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  topicId    String?
+  categoryId String?
+
+  totalCards        Int
+  correctOnFirstTry Int
+  totalAttempts     Int
+  createdAt         DateTime @default(now())
+}
+
+model SavedFlashcard {
+  id          String    @id @default(uuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  flashcardId String
+  flashcard   Flashcard @relation(fields: [flashcardId], references: [id])
+  savedAt     DateTime  @default(now())
+
+  @@unique([userId, flashcardId])
+}
+
+model SavedWord {
+  id      String   @id @default(uuid())
+  userId  String
+  user    User     @relation(fields: [userId], references: [id])
+  wordId  String
+  word    Word     @relation(fields: [wordId], references: [id])
+  savedAt DateTime @default(now())
+
+  @@unique([userId, wordId])
+}
+
+model FlashcardReview {
+  id          String    @id @default(uuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  flashcardId String
+  flashcard   Flashcard @relation(fields: [flashcardId], references: [id])
+
+  easeFactor     Float    @default(2.5)
+  interval       Int      @default(0)
+  repetitions    Int      @default(0)
+  nextReviewDate DateTime @default(now())
+
+  @@unique([userId, flashcardId])
+}
+
+model WordReview {
+  id     String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+  wordId String
+  word   Word   @relation(fields: [wordId], references: [id])
+
+  easeFactor     Float    @default(2.5)
+  interval       Int      @default(0)
+  repetitions    Int      @default(0)
+  nextReviewDate DateTime @default(now())
+
+  @@unique([userId, wordId])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique  // Hash SHA-256 del token real enviado al usuario
+  expiresAt DateTime
+  isUsed    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
