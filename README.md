@@ -1,7 +1,16 @@
-# English Grammar & Vocabulary Monorepo
+# Recallio (English Grammar & Vocabulary Monorepo)
 
-Aplicación de aprendizaje de vocabulario en inglés, diseñada con una arquitectura de monorepo gestionada por **pnpm workspaces**.
-Incluye un backend en NestJS y un frontend en Astro con React.
+Aplicación de aprendizaje de vocabulario en inglés con sistema de repetición espaciada (Spaced Repetition System), diseñada con una arquitectura de monorepo gestionada por **pnpm workspaces**. Incluye un backend en NestJS y un frontend en Astro con React.
+
+## 🎯 Propósito del Proyecto
+
+Recallio está diseñado para uso personal o para compartir con la comunidad. Su objetivo principal es facilitar el aprendizaje y retención del idioma inglés a través de herramientas interactivas:
+
+- **Sistema de Flashcards (Repetición Espaciada):** Implementación de flashcards con un algoritmo de aprendizaje basado en repetición espaciada (SM-2) para maximizar la retención de memoria a largo plazo.
+- **Gestión de Flashcards Personales y Públicas:** Crea tus propias tarjetas de estudio o utiliza el catálogo público.
+- **Segmentación por Categorías:** Organiza tu estudio dividiendo las flashcards y el vocabulario en categorías específicas.
+- **Sugerencias y Correcciones:** Colabora proponiendo correcciones para las flashcards existentes y aportando nuevas palabras.
+- **Vocabulario Dinámico:** Agrega continuamente palabras al vocabulario general para repasarlas periódicamente.
 
 ## 🚀 Requisitos Previos
 
